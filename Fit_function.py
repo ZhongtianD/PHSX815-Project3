@@ -89,7 +89,7 @@ if __name__ == "__main__":
     plt.scatter(X,Y,label="Samples")
     
     plt.legend()
-    plt.title(str(Degree) +  "th degree polynomial fitting")
+    plt.title(str(Degree-1) +  "th degree polynomial fitting")
     plt.savefig('Fit_result.png')
     plt.show
     
