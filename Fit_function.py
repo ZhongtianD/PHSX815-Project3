@@ -29,7 +29,7 @@ if __name__ == "__main__":
     
     if '-Mode' in sys.argv:
         p = sys.argv.index('-Mode')
-        Mode = sys.argv[p+1]
+        Mode = int(sys.argv[p+1])
     if '-Nsample' in sys.argv:
         p = sys.argv.index('-Nsample')
         Ns = int(sys.argv[p+1])
