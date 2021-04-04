@@ -29,7 +29,7 @@ if __name__ == "__main__":
     
     if '-Mode' in sys.argv:
         p = sys.argv.index('-Mode')
-        seed = sys.argv[p+1]
+        Mode = sys.argv[p+1]
     if '-Nsample' in sys.argv:
         p = sys.argv.index('-Nsample')
         Ns = int(sys.argv[p+1])
@@ -79,10 +79,12 @@ if __name__ == "__main__":
         return S
     Line  = np.linspace(-pi,pi,100,endpoint=False)
 
-    plt.plot(Line,sol(Line),c='g')
-    plt.plot(Line,fcn(Line),c='r')
-    plt.scatter(X,Y)
+    plt.plot(Line,sol(Line),c='g', label = "Fitted function")
+    plt.plot(Line,fcn(Line),c='r',label="True function")
+    plt.scatter(X,Y,label="Samples")
     
+    plt.legend()
+    plt.title(str(Degree) +  "th degree polynomial fitting")
     plt.savefig('Fit_result.png')
     plt.show
     
