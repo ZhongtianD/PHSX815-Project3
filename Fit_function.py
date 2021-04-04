@@ -20,7 +20,7 @@ if __name__ == "__main__":
         print ("Usage: %s [options]" % sys.argv[0])
         print ("  options:")
         print ("   --help(-h)          print options")
-        print ("   -Mode [Integer] Choose which function to fit (0-2)")
+        print ("   -Mode [Integer] Choose which function to fit (0-4)")
         print ("   -Nsample [Integer] number of samples for the function")
         print ("   -Degree [Integer] degree of the polynomial spline ")
         print ("   -sigma [number] standard deviation for the gaussian error")
@@ -54,6 +54,11 @@ if __name__ == "__main__":
             return np.cos(x)
         elif Mode == 2:
             return signal.square(x)
+        elif Mode == 3:
+            return signal.sawtooth(5*x)
+        elif Mode == 4:
+            i, q, e = signal.gausspulse(x, fc=0.7, retquad=True, retenv=True)
+            return i
 
     #Generate the samples
     X = random.uniform(-pi,pi,Nsample)
